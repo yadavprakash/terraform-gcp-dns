@@ -9,9 +9,9 @@ module "labels" {
 data "google_client_config" "current" {
 }
 
-#####==============================================================================
-##### A zone is peering subtree of the DNS namespace under one administrative responsibility.
-#####==============================================================================
+#------------------------------------------------------------------------------------------------
+# A zone is peering subtree of the DNS namespace under one administrative responsibility.
+#------------------------------------------------------------------------------------------------
 resource "google_dns_managed_zone" "peering" {
   count         = var.type == "peering" ? 1 : 0
   provider      = google-beta
@@ -42,9 +42,9 @@ resource "google_dns_managed_zone" "peering" {
   }
 }
 
-#####==============================================================================
-##### A zone is forwarding subtree of the DNS namespace under one administrative responsibility.
-#####==============================================================================
+#-------------------------------------------------------------------------------------------------
+# A zone is forwarding subtree of the DNS namespace under one administrative responsibility.
+#-------------------------------------------------------------------------------------------------
 resource "google_dns_managed_zone" "forwarding" {
   count         = var.type == "forwarding" ? 1 : 0
   provider      = google-beta
@@ -79,9 +79,9 @@ resource "google_dns_managed_zone" "forwarding" {
   }
 }
 
-#####==============================================================================
-##### A zone is private subtree of the DNS namespace under one administrative responsibility.
-#####==============================================================================
+#-----------------------------------------------------------------------------------------------
+# A zone is private subtree of the DNS namespace under one administrative responsibility.
+#-----------------------------------------------------------------------------------------------
 resource "google_dns_managed_zone" "private" {
   count         = var.type == "private" ? 1 : 0
   project       = data.google_client_config.current.project
@@ -105,9 +105,9 @@ resource "google_dns_managed_zone" "private" {
   }
 }
 
-#####==============================================================================
-##### A zone is public subtree of the DNS namespace under one administrative responsibility.
-#####==============================================================================
+#-------------------------------------------------------------------------------------------------
+# A zone is public subtree of the DNS namespace under one administrative responsibility.
+#-------------------------------------------------------------------------------------------------
 resource "google_dns_managed_zone" "public" {
   count         = var.type == "public" ? 1 : 0
   project       = data.google_client_config.current.project
@@ -146,9 +146,9 @@ resource "google_dns_managed_zone" "public" {
   }
 }
 
-#####==============================================================================
-##### A zone is reverse_lookup subtree of the DNS namespace under one administrative responsibility.
-#####==============================================================================
+#----------------------------------------------------------------------------------------------------
+# A zone is reverse_lookup subtree of the DNS namespace under one administrative responsibility.
+#----------------------------------------------------------------------------------------------------
 resource "google_dns_managed_zone" "reverse_lookup" {
   count          = var.type == "reverse_lookup" ? 1 : 0
   provider       = google-beta
@@ -174,9 +174,9 @@ resource "google_dns_managed_zone" "reverse_lookup" {
   }
 }
 
-#####==============================================================================
-##### A zone is service_directory subtree of the DNS namespace under one administrative responsibility.
-#####==============================================================================
+#--------------------------------------------------------------------------------------------------------
+# A zone is service_directory subtree of the DNS namespace under one administrative responsibility.
+#--------------------------------------------------------------------------------------------------------
 resource "google_dns_managed_zone" "service_directory" {
   count         = var.type == "service_directory" ? 1 : 0
   provider      = google-beta
@@ -204,9 +204,9 @@ resource "google_dns_managed_zone" "service_directory" {
   }
 }
 
-#####==============================================================================
-##### Manages a set of DNS records within Google Cloud DNS.
-#####==============================================================================
+#--------------------------------------------------------------------------------------------------
+# Manages a set of DNS records within Google Cloud DNS.
+##-------------------------------------------------------------------------------------------------
 resource "google_dns_record_set" "cloud-static-records" {
   project      = data.google_client_config.current.project
   managed_zone = format("%s", module.labels.id)

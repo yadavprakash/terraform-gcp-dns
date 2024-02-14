@@ -10,10 +10,11 @@ module "labels" {
 data "google_client_config" "current" {
 }
 
-#####==============================================================================
-##### A Response Policy is a collection of selectors that apply to queries made
-###### against one or more Virtual Private Cloud networks.
-#####==============================================================================
+#-----------------------------------------------------------------------------------
+# A Response Policy is a collection of selectors that apply to queries made
+# against one or more Virtual Private Cloud networks.
+#-----------------------------------------------------------------------------------
+
 resource "google_dns_response_policy" "this" {
   project              = data.google_client_config.current.project
   response_policy_name = var.policy_name
@@ -26,9 +27,10 @@ resource "google_dns_response_policy" "this" {
   }
 }
 
-#####==============================================================================
-##### A Response Policy Rule is a selector that applies its behavior to queries that match the selector.
-#####==============================================================================
+#---------------------------------------------------------------------------------------------------
+#A Response Policy Rule is a selector that applies its behavior to queries that match the selector.
+#---------------------------------------------------------------------------------------------------
+
 resource "google_dns_response_policy_rule" "this" {
   for_each        = toset(keys(var.rules))
   provider        = google-beta
