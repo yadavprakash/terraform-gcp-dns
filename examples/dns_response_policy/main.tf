@@ -8,7 +8,7 @@ provider "google" {
 ##### vpc module call.
 #-----------------------------------------------------------------------------------
 module "vpc" {
-  source                                    = "git::git@github.com:opsstation/terraform-gcp-vpc.git?ref=v1.0.0"
+  source                                    = "git::git@github.com:yadavprakash/terraform-gcp-vpc.git?ref=v1.0.0"
   name                                      = "dev"
   environment                               = "test"
   label_order                               = ["name", "environment"]
@@ -28,7 +28,7 @@ module "dns_response_policy" {
   name               = "dev-test"
   environment        = "response-policy"
   network_self_links = [module.vpc.self_link]
-  description        = "Example DNS response policy created by terraform module OpsStation."
+  description        = "Example DNS response policy created by terraform module yadavprakash."
 
   rules = {
     "override-google-com" = {
@@ -59,3 +59,4 @@ module "dns_response_policy" {
     }
   }
 }
+

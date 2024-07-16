@@ -20,7 +20,7 @@ To use this module, you should have Terraform installed and configured for GCP. 
 
 ```hcl
 module "dns_forwarding_zone" {
-  source                             = "https://github.com/opsstation/terraform-gcp-dns.git"
+  source                             = "https://github.com/yadavprakash/terraform-gcp-dns.git"
   type                               = "forwarding"
   name                               = "app-test"
   environment                        = "forwarding"
@@ -44,7 +44,7 @@ module "dns_forwarding_zone" {
 
 ```hcl
 module "dns_peering_zone" {
-  source                             = "https://github.com/opsstation/terraform-gcp-dns.git"
+  source                             = "https://github.com/yadavprakash/terraform-gcp-dns.git"
   type                               = "peering"
   name                               = "app-test"
   environment                        = "peering"
@@ -62,7 +62,7 @@ module "dns_peering_zone" {
 
 ```hcl
 module "dns_private_zone" {
-  source                             = "https://github.com/opsstation/terraform-gcp-dns.git"
+  source                             = "https://github.com/yadavprakash/terraform-gcp-dns.git"
   type                               = "private"
   name                               = "app-test"
   environment                        = "dns-private-zone"
@@ -119,7 +119,7 @@ module "dns_private_zone" {
 
 ```hcl
 module "dns_public_zone" {
-  source                             = "https://github.com/opsstation/terraform-gcp-dns.git"
+  source                             = "https://github.com/yadavprakash/terraform-gcp-dns.git"
   type                               = "public"
   name                               = "app-test"
   environment                        = "public"
@@ -188,14 +188,14 @@ This example demonstrates how to create various GCP resources using the provided
 - This module currently does not provide any outputs.
 
 # Examples
-For detailed examples on how to use this module, please refer to the [example](https://github.com/opsstation/terraform-gcp-dns/tree/master/_example) directory within this repository.
+For detailed examples on how to use this module, please refer to the [example](https://github.com/yadavprakash/terraform-gcp-dns/tree/master/_example) directory within this repository.
 
 ## Authors
 Your Name
 Replace '[License Name]' and '[Your Name]' with the appropriate license and your information. Feel free to expand this README with additional details or usage instructions as needed for your specific use case.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/opsstation/terraform-gcp-dns/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/yadavprakash/terraform-gcp-dns/blob/master/LICENSE) file for details.
 
 
 
@@ -219,7 +219,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_labels"></a> [labels](#module\_labels) | git::git@github.com:opsstation/terraform-gcp-labels.git | v1.0.0 |
+| <a name="module_labels"></a> [labels](#module\_labels) | git::git@github.com:yadavprakash/terraform-gcp-labels.git | v1.0.0 |
 
 ## Resources
 
@@ -240,7 +240,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 |------|-------------|------|---------|:--------:|
 | <a name="input_default_key_specs_key"></a> [default\_key\_specs\_key](#input\_default\_key\_specs\_key) | Object containing default key signing specifications : algorithm, key\_length, key\_type, kind. Please see https://www.terraform.io/docs/providers/google/r/dns_managed_zone#dnssec_config for futhers details | `any` | `{}` | no |
 | <a name="input_default_key_specs_zone"></a> [default\_key\_specs\_zone](#input\_default\_key\_specs\_zone) | Object containing default zone signing specifications : algorithm, key\_length, key\_type, kind. Please see https://www.terraform.io/docs/providers/google/r/dns_managed_zone#dnssec_config for futhers details | `any` | `{}` | no |
-| <a name="input_description"></a> [description](#input\_description) | zone description (shown in console) | `string` | `"Managed by opsstation"` | no |
+| <a name="input_description"></a> [description](#input\_description) | zone description (shown in console) | `string` | `"Managed by yadavprakash"` | no |
 | <a name="input_dnssec_config"></a> [dnssec\_config](#input\_dnssec\_config) | Object containing : kind, non\_existence, state. Please see https://www.terraform.io/docs/providers/google/r/dns_managed_zone#dnssec_config for futhers details | `any` | `{}` | no |
 | <a name="input_domain"></a> [domain](#input\_domain) | Zone domain, must end with a period. | `string` | n/a | yes |
 | <a name="input_enable_logging"></a> [enable\_logging](#input\_enable\_logging) | Enable query logging for this ManagedZone | `bool` | `false` | no |
@@ -248,7 +248,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 | <a name="input_force_destroy"></a> [force\_destroy](#input\_force\_destroy) | Set this true to delete all records in the zone. | `bool` | `false` | no |
 | <a name="input_label_order"></a> [label\_order](#input\_label\_order) | Label order, e.g. sequence of application name and environment `name`,`environment`,'attribute' [`webserver`,`qa`,`devops`,`public`,] . | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre> | no |
 | <a name="input_labels"></a> [labels](#input\_labels) | A set of key/value label pairs to assign to this ManagedZone | `map(any)` | `{}` | no |
-| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy,opsstation | `string` | `""` | no |
+| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy,yadavprakash | `string` | `""` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name of the resource. Provided by the client when the resource is created. | `string` | `"test"` | no |
 | <a name="input_private_visibility_config_networks"></a> [private\_visibility\_config\_networks](#input\_private\_visibility\_config\_networks) | List of VPC self links that can see this zone. | `list(any)` | `[]` | no |
 | <a name="input_recordsets"></a> [recordsets](#input\_recordsets) | List of DNS record objects to manage, in the standard terraform dns structure. | <pre>list(object({<br>    name    = string<br>    type    = string<br>    ttl     = number<br>    records = list(string)<br>  }))</pre> | `[]` | no |
